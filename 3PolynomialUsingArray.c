@@ -21,17 +21,17 @@ int main()
     while(i<=M && i<=N)
     {
         S[i] = N1[i]+M1[i];
-        i++;
+        i=i+1;
     }
     while(i<=N)
     {
         S[i]=N1[i];
-        i++;
+        i=i+1;
     }
     while(i<=M)
     {
         S[i]=M1[i];
-        i++;
+        i=i+1;
     }   
     for(int i = max;i>=0;i--)
     printf("%d ",S[i]);
