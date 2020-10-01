@@ -1,66 +1,54 @@
 #include <stdio.h>
+
 void bubbleSort(int arr[], int n) {
-    /* 
-    Sort the arr using the Bubble Sort algorithm
-    Arguments:
-        1. arr - array to be sorted
-        2. n - length of array
-    */
-    int i, j;  
-    for (i = 0; i < n-1; i++)      
-    {  
-        for (j = 0; j < n-i-1; j++)  
+    int i,j,temp;
+    for( i=0;i<n-1;i++)
+    {
+        for(j=0;j<n-1-i;j++)
         {
-            if (arr[j] > arr[j+1]) 
+            if(arr[j]>arr[j+1])
             {
-                int temp = arr[j];  
-                arr[j] = arr[j+1];  
-                arr[j+1] = temp;
-            }      
+                temp=arr[j];
+                arr[j]=arr[j+1];
+                arr[j+1]=temp;
+            }
+        }
+    }
+    
+}
+
+void insertionSort(int arr[], int n) {
+     int i, key, j; 
+    for (i = 1; i < n; i++) { 
+        key = arr[i]; 
+        j = i - 1; 
+  
+        
+        while (j >= 0 && arr[j] > key) { 
+            arr[j + 1] = arr[j]; 
+            j = j - 1; 
+        } 
+        arr[j + 1] = key; 
+    } 
+    
+}
+
+void selectionSort(int arr[], int n) {
+    int i,j,temp;
+    for(i=0;i<n-1;i++)
+    {
+        for(j=i+1;j<n;j++)
+        {
+            if(arr[i]>arr[j])
+            {
+                temp=arr[i];
+                arr[i]=arr[j];
+                arr[j]=temp;
+            }
         }
     }
 }
 
-void insertionSort(int arr[], int n) {
-    /* 
-    Sort the arr using the Bubble Sort algorithm
-    Arguments:
-        1. arr - array to be sorted
-        2. n - length of array
-    */
-    int i, key, j;  
-    for (i = 1; i < n; i++) 
-    {  
-        key = arr[i];  
-        j = i - 1;  
-        while (j >= 0 && arr[j] > key) 
-        {  
-            arr[j + 1] = arr[j];  
-            j = j - 1;  
-        }  
-        arr[j + 1] = key;  
-    }
-}
-
-void selectionSort(int arr[], int n) {
-    /* 
-    Sort the arr using the Bubble Sort algorithm
-    Arguments:
-        1. arr - array to be sorted
-        2. n - length of array
-    */
-    int i, j, key;  
-    for (i = 0; i < n-1; i++)  
-    {
-        key = i;  
-        for (j = i+1; j < n; j++)  
-        if (arr[j] < arr[key])  
-            key = j;  
-        int temp = arr[key];  
-        arr[key] = arr[i];  
-        arr[i] = temp; 
-    }
-}
 int main() {
     int q, n, t;
     int arr[5000];
